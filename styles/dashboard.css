@@ -1,47 +1,102 @@
-.dashboard-screen{
-    margin: 0;
-    padding: 0;
-    font-family:Arial, Helvetica, sans-serif ;
-    background: #f4f4f4;
+.dashboard-screen {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f4f4;
 }
-.top-bar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px;
-    background: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-.logo{
-    font-size: 20px;
-    font-weight: bold;
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
 }
-.logo img{
-    height: 40px;
-    width: auto;
-    object-fit: contain;
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
-.search-box{
-    width: 1;
-    margin: 0 10px;
+
+.search-box {
+  flex: 1; /* grow to fill space */
+  margin: 0 10px;
+  position: relative; /* for autocomplete dropdown */
 }
-.search-box input{
-    width: 160px;
-    padding:  8px 12px;
-     border: 1px solid #4215e7dd;
-    border-radius: 25px;
-    font-size: 14px;
+
+.search-box input {
+  width: 100%;
+  padding: 8px 3px;
+  border: 1px solid #4215e7dd;
+  border-radius: 25px;
+  font-size: 14px;
 }
+
+/* ========== AUTOCOMPLETE RESULTS ========== */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 4px;
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1001;
+
+  /* scrollbar styles */
+  scrollbar-width: thin;            /* Firefox */
+  scrollbar-color: white transparent; /* Firefox */
+}
+
+/* Webkit browsers scrollbar */
+.search-results::-webkit-scrollbar {
+  width: 6px;              /* very thin */
+  background: transparent;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 3px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.search-results li {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.search-results li:hover {
+  background: #f1f1f1;
+}
+
 #map {
+  position: sticky;
   height: 300px;
   width: 100%;
   margin-top: 10px;
   border-radius: 10px;
   overflow: hidden;
 }
+
 /* ========== BOTTOM TABS ========== */
 .bottom-tabs {
   position: fixed;
@@ -74,6 +129,7 @@
 .tab-item:hover {
   color: #007bff;
 }
+
 /* ========== TRIPS SECTION ========== */
 .available-trips {
   padding: 15px;
@@ -116,5 +172,3 @@
 .book-btn:hover {
   background: #0056b3;
 }
-
-
