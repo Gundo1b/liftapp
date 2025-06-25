@@ -1,0 +1,8 @@
+</body>
+=======
+    </div>
+
+    <div class="next-btn-container">
+        <button onclick="gotoNextSlide()">Next</button>
+    </div>
+</body>

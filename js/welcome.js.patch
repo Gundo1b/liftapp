@@ -1,0 +1,31 @@
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    slide.forEach((slide, i) => {
+        if(i == index){
+            slide.classList.add('active');
+        }
+    });
+}
+=======
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        if(i === index){
+            slide.classList.add('active');
+        } else {
+            slide.classList.remove('active');
+        }
+    });
+}
+
+function gotoNextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Initialize the first slide as active on page load
+showSlide(currentSlide);
+}

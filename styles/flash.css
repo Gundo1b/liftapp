@@ -1,0 +1,21 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.flash-screen{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.centered{
+    text-align: center;
+}
+.logo{
+    width: 120px;
+    height: 120px;
+    max-width: 110px;
+}
