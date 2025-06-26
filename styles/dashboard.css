@@ -16,6 +16,22 @@
   top: 0;
   z-index: 1000;
 }
+<<<<<<< HEAD
+=======
+.user-dropdown {
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: none;
+  z-index: 100;
+}
+
+
+>>>>>>> b25ffbb (Initial commit with registration fixes)
 
 .logo {
   font-size: 20px;

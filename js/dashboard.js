@@ -22,7 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
     map = L.map("map").setView([lat, lon], 14);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+<<<<<<< HEAD
       attribution: "© OpenStreetMap contributors"
+=======
+      attribution: ""
+>>>>>>> b25ffbb (Initial commit with registration fixes)
     }).addTo(map);
 
     userMarker = L.marker([lat, lon], { icon: blueIcon })
