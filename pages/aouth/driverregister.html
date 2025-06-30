@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>driver</title>
+</head>
+<body>
+    <div class="driver-container">
+        <h2>Driver Registration</h2>
+        <form id="driver-form">
+            <input type="text" id="driver-name" placeholder="Full Name" required>
+            <input type="email" id="driver-email" placeholder="Email" required>
+            <input type="tel" id="driver-phone" placeholder="Phone Number" required>
+            <input type="text" id="vehicle-make" placeholder="Vehicle Make" required>
+            <input type="text" id="vehicle-model" placeholder="Vehicle Model" required>
+            <input type="text" id="vehicle-plate" placeholder="Vehicle Plate Number" required>
+            <button type="submit">Register as Driver</button>
+        </form>
+        <p id="registration-status"></p>
+    </div>
+
+    <script src="../../js/supabase.js"></script>
+    <script src="../../js/driver.js"></script>
+</body>
+</html>
