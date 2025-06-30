@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/welcome.css">
+    <title>welcome</title>
+</head>
+<body class="welcome-page">
+    <button class="skip-button" onclick="gotoLogin()">Skip</button>
+
+    <div class="slide-container">
+        <img src="../assets/register.png" alt="Slide 1" class="slide active"/>
+        <img src="../assets/chat.png" alt="Slide 2" class="slide"/>
+        <img src="../assets/ready to go.png" alt="Slide 3" class="slide"/>
+        <img src="../assets/share ride.png" alt="Slide 4" class="slide"/>
+    </div>
+
+    <div class="next-btn-container">
+        <button onclick="gotoNextSlide()">Next</button>
+    </div>
+    <script src="/js/welcome.js"></script>
+</body>
+</html>

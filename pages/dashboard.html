@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Your Custom CSS -->
+  <link rel="stylesheet" href="/styles/dashboard.css" />
+
+  <title>Dashboard</title>
+
+  <style>
+    .user-menu {
+      position: relative;
+    }
+    .user-dropdown {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      display: none;
+      width: 200px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+    }
+    .user-dropdown p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    .user-dropdown button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 8px 10px;
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .user-dropdown button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body class="dashboard-screen">
+  <header class="top-bar">
+    <div class="logo">
+      <img src="/assets/undraw_my-current-location_tudq.png" alt="Logo" />
+    </div>
+
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="Search & Add Stop..." />
+      <ul id="search-results" class="search-results"></ul>
+    </div>
+
+    <!-- User Button + Dropdown -->
+    <div class="user-menu">
+      <button class="search-btn" onclick="toggleUserMenu()">
+        <i class="bi bi-person-circle"></i>
+      </button>
+      <div id="user-dropdown" class="user-dropdown">
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Email:</strong> johndoe@example.com</p>
+        <button onclick="logoutUser()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="map"></div>
+
+  <!-- Available trips section -->
+  <section class="available-trips">
+    <h3>Available Trips</h3>
+    <div class="trip-card">
+      <div class="trip-info">
+        <strong>From:</strong> Sandton<br />
+        <strong>To:</strong> Pretoria<br />
+        <strong>Time:</strong> 12:30 PM
+      </div>
+      <button class="book-btn">Book</button>
+    </div>
+    <div class="trip-card">
+      <div class="trip-info">
+        <strong>From:</strong> Midrand<br />
+        <strong>To:</strong> Johannesburg<br />
+        <strong>Time:</strong> 1:15 PM
+      </div>
+      <button class="book-btn">Book</button>
+    </div>
+  </section>
+
+  <nav class="bottom-tabs">
+    <a href="#" class="tab-item">
+      <i class="bi bi-house"></i>
+      <span class="tab-label">Home</span>
+    </a>
+    <a href="#" class="tab-item">
+      <i class="bi bi-arrow-90deg-up"></i>
+      <span class="tab-label">Trip</span>
+    </a>
+    <a href="#" class="tab-item">
+      <i class="bi bi-chat"></i>
+      <span class="tab-label">Chat</span>
+    </a>
+    <a href="#" class="tab-item">
+      <i class="bi bi-gear"></i>
+      <span class="tab-label">Settings</span>
+    </a>
+  </nav>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Leaflet Routing Machine -->
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+  <!-- Supabase Auth Guard -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="/js/supabase.js"></script>
+  <script>
+    const session = supabase.auth.session();
+
+    if (!session) {
+      window.location.href = "/pages/aouth/login.html";
+    } else {
+      const user = session.user;
+      // Update name & email
+      document.querySelector("#user-dropdown").innerHTML = `
+        <p><strong>Name:</strong> ${user.user_metadata.full_name || "Anonymous"}</p>
+        <p><strong>Email:</strong> ${user.email}</p>
+        <button onclick="logoutUser()">Logout</button>
+      `;
+    }
+  </script>
+
+  <!-- Your dashboard script -->
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
